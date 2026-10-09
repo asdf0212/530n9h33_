@@ -1,0 +1,123 @@
+/* ---------- MORE panel (Figma: modal_contact) — About 페이지와 메인 푸터에서 공용 ---------- */
+:root {
+  --panel-w: 475px;
+  --panel-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --panel-dur: 400ms;
+  --font-kr: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", var(--font);
+}
+
+.chip--on,
+.chip[aria-selected="true"] { border-color: var(--fg); color: var(--fg); }
+
+/* 28px 테두리 박스 + 24px 아이콘 (뒤로가기, 닫기) */
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--fg);
+  flex-shrink: 0;
+}
+
+.more {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  width: var(--panel-w);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border-left: 1px solid var(--fg-dim);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform var(--panel-dur) var(--panel-ease),
+    visibility 0s linear var(--panel-dur);
+}
+.more.is-open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform var(--panel-dur) var(--panel-ease);
+}
+
+.more-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--pad);
+  background: var(--bg);
+}
+.more-tabs { display: flex; gap: 6px; }
+
+.more-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px var(--pad) 32px;
+  font-family: var(--font-kr);
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.03em;          /* -0.42px @ 14px */
+  word-break: keep-all;
+}
+.more-body p,
+.more-body dl,
+.more-body dd,
+.more-h { margin: 0; }
+
+.more-page { display: flex; flex-direction: column; }
+.more-page[hidden] { display: none; }
+/* CONTACT: 위 그룹 / HOW 그룹을 패널 위·아래로 벌림 */
+.more-page--contact { min-height: 100%; justify-content: space-between; gap: 48px; }
+.more-page--profile { gap: 36px; }
+
+.more-group { display: flex; flex-direction: column; gap: 8px; }
+.more-group--how { padding-top: 8px; }
+.more-h { font-size: inherit; font-weight: 700; }
+
+.more-rows { display: flex; flex-direction: column; gap: 8px; }
+.more-page--contact .more-group:first-child .more-rows { gap: 0; }   /* TEL~ELSEWHERE는 줄 간격 없이 */
+.more-rows > div { display: flex; gap: 8px; }
+.more-rows dt { flex: 0 0 110.5px; }
+.more-rows dd { flex: 1; min-width: 0; }
+
+.more-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(13, 13, 13, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--panel-dur) var(--panel-ease), visibility 0s linear var(--panel-dur);
+}
+
+/* 덮는 모드: 메인 페이지는 모든 폭, About은 1119px 이하 */
+body.more-open:not(.about) { overflow: hidden; }
+body.more-open:not(.about) .more-scrim {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--panel-dur) var(--panel-ease);
+}
+@media (max-width: 1119px) {
+  .about.more-open { overflow: hidden; }
+  .about.more-open .more-scrim {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--panel-dur) var(--panel-ease);
+  }
+}
+
+/* ---------- 767px 이하: 전체 화면 패널 ---------- */
+@media (max-width: 767px) {
+  .more { width: 100%; border-left: 0; }
+  .more-scrim { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .more, .more.is-open, .more-scrim { transition: none; }
+}

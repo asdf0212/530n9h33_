@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — 530n9h33</title>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../more.css">
+  <link rel="stylesheet" href="../about.css">
+</head>
+<body class="about">
+  <header class="about-bar">
+    <a class="icon-box" href="../" aria-label="Back to works">
+      <img class="only-light" src="../assets/icon-back-light.svg" width="24" height="24" alt="">
+      <img class="only-dark" src="../assets/icon-back-dark.svg" width="24" height="24" alt="">
+    </a>
+    <div class="about-bar-end">
+      <button class="chip chip--on" id="more-open" type="button" aria-expanded="false" aria-controls="more">more</button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <img class="only-light" src="../assets/icon-sun.svg" width="28" height="28" alt="">
+        <img class="only-dark" src="../assets/icon-moon.svg" width="28" height="28" alt="">
+      </button>
+    </div>
+  </header>
+
+  <!-- 셀프 브랜딩 영역 (콘텐츠 디자인 예정) -->
+  <main class="about-stage"></main>
+
+  <div class="more-scrim" id="more-scrim"></div>
+
+  <aside class="more" id="more" role="dialog" aria-label="More about 530n9h33" inert>
+    <div class="more-bar">
+      <button class="icon-box" id="more-close" type="button" aria-label="Close">
+        <img class="only-light" src="../assets/icon-close-light.svg" width="24" height="24" alt="">
+        <img class="only-dark" src="../assets/icon-close-dark.svg" width="24" height="24" alt="">
+      </button>
+      <div class="more-tabs" role="tablist">
+        <button class="chip" role="tab" id="tab-contact" aria-controls="page-contact" aria-selected="true">contact</button>
+        <button class="chip" role="tab" id="tab-profile" aria-controls="page-profile" aria-selected="false" tabindex="-1">profile</button>
+      </div>
+    </div>
+
+    <div class="more-body" id="more-body">
+      <!-- CONTACT -->
+      <section class="more-page more-page--contact" id="page-contact" role="tabpanel" aria-labelledby="tab-contact">
+        <div class="more-group">
+          <h2 class="more-h">ABOUT 530n9h33</h2>
+          <p>530n9h33, 최성희는 욕심이 많습니다.<br>브랜딩과 편집을 기반으로 하는 그래픽 디자이너로, 아날로그에서 디지털, 지면에서 LED 패널, 작은 책부터 한 브랜드의 아이덴티티까지 다양한 장르에 도전합니다.</p>
+          <dl class="more-rows">
+            <div><dt>TEL</dt><dd><a href="tel:+821066039262">+82 10 6603 9262</a></dd></div>
+            <div><dt>E-MAIL</dt><dd><a href="mailto:seonghee.choi0212@gmail.com">seonghee.choi0212@gmail.com</a></dd></div>
+            <div><dt>CV</dt><dd><a href="../cv.pdf" download>Download</a></dd></div>
+            <div><dt>ELSEWHERE</dt><dd>
+              <a href="https://www.instagram.com/arch1v3_530n9h33_/" target="_blank" rel="noopener">Instagram</a><br>
+              <a href="https://www.behance.net/530ngh33" target="_blank" rel="noopener">Behance</a>
+            </dd></div>
+          </dl>
+        </div>
+
+        <div class="more-group more-group--how">
+          <h2 class="more-h">HOW 530n9h33 WORKS</h2>
+          <p>530n9h33가 디자인을 다루는 방식은 기억하는 과정(re-membering)과도 닮아 있습니다.</p>
+          <dl class="more-rows">
+            <div><dt>DIS-MEMBER</dt><dd>member는 전체를 이루는 개별 요소입니다. 하나로 뭉쳐 있는 대상을 파편으로 나누어 읽는 것에서부터 시작합니다.<br>정량적인 수치 뿐 아니라, 정성적인 이야기를 함께 염두에 둡니다. 대중이 말하는 의견과 개인이 품은 마음, 그 중간 지점을 찾아봅니다.</dd></div>
+            <div><dt>RE-ORGANIZE</dt><dd>organize는 따로 놓인 부분들이 유기적으로 맞물려 움직이게 하는 일입니다. 나눈 조각들이 다시 전체로서 동작하도록 합니다.<br>설득력 있는 규칙을 탐구하고, 맥락과 이어지는 디자인 시스템을 고민합니다.</dd></div>
+            <div><dt>RE-PRESENT</dt><dd>present는 ‘눈앞에 내놓는 것’이자 ‘지금’입니다. 정립된 체계를 지금 이 자리에 재현하는 일입니다.<br>그 체계로 무엇을 보여줄지, 어떻게 보여줄 수 있을지, 왜 보여줘야 하는지를 묻고, 그 답을 펼쳐냅니다.</dd></div>
+            <div><dt>INTER-WEAVE</dt><dd>weave는 ‘엮는 일’입니다. 서로 다른 영역을 오가며 하나의 결로 엮어 융합합니다.<br>인문학적 사고의 맥락과 디자인적 사고의 시각화, 그 사이를 고민합니다. 이는 530n9h33가 기억하는 방식이자 디자인에 접근하는 방식입니다.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="more-page more-page--profile" id="page-profile" role="tabpanel" aria-labelledby="tab-profile" hidden>
+        <div class="more-group">
+          <h2 class="more-h">EDUCATION</h2>
+          <dl class="more-rows">
+            <div><dt>2024.03 -</dt><dd>서울과학기술대학교, 디자인학부 시각디자인전공</dd></div>
+            <div><dt>2023.03 -</dt><dd>서울과학기술대학교, 영어영문학과</dd></div>
+            <div><dt>2019.03 - 2022.02</dt><dd>선린인터넷고등학교, 멀티미디어과</dd></div>
+          </dl>
+        </div>
+
+        <div class="more-group">
+          <h2 class="more-h">EXPERIENCE</h2>
+          <dl class="more-rows">
+            <div><dt>2026.01 - NOW</dt><dd>PATH B. EXIT6 General Store, 디자인 어시스턴트</dd></div>
+            <div><dt>2025.08 - 2025.11</dt><dd>멋쟁이사자처럼 대학 13기, 4호선톤 비주얼 디렉팅</dd></div>
+            <div><dt>2025.02 - 2025.05</dt><dd>LG전자 X 대학생 아트 콜라보 개인전, Team Web OS</dd></div>
+            <div><dt>2025.01</dt><dd>중기부 / SK 플래닛 주관 제29회 APPJAM, 지도 교사</dd></div>
+            <div><dt>2024.12</dt><dd>중기부 / SK 플래닛 주관 제28회 APPJAM,<br>엔터테인먼트 분야 심사위원</dd></div>
+            <div><dt>2024.07 - 2024.09</dt><dd>중기부 / SK 플래닛 주관 2024 STA+C 스마틴 앱 챌린지,<br>엔터테인먼트 분야 디자인 지도교사</dd></div>
+            <div><dt>2023.07 - 2023.09</dt><dd>중기부 / SK 플래닛 주관 2023 STA+C 스마틴 앱 챌린지,<br>엔터테인먼트 분야 디자인 지도교사</dd></div>
+          </dl>
+        </div>
+
+        <div class="more-group">
+          <h2 class="more-h">ACTIVITIES</h2>
+          <dl class="more-rows">
+            <div><dt>2026.09 -</dt><dd>SOPT 39기, 디자인 파트 학회원</dd></div>
+            <div><dt>2026.04 - 2026.07</dt><dd>파이 디자인 스쿨, 프리코스 트랙 A 수료</dd></div>
+            <div><dt>2025.02 - 2025.12</dt><dd>멋쟁이사자처럼 대학 13기, 중앙운영단 홍보부</dd></div>
+            <div><dt>2025.02 - 2025.12</dt><dd>멋쟁이사자처럼 대학 13기, 서울과학기술대학교<br>디자인 운영진</dd></div>
+            <div><dt>2024.09 - 2025.05</dt><dd>GDG on Campus SeoulTech 4th, UIUX Design Core</dd></div>
+            <div><dt>2024.02 - 2024.12</dt><dd>멋쟁이사자처럼 대학 12기, 서울과학기술대학교<br>디자인 운영진</dd></div>
+          </dl>
+        </div>
+
+        <div class="more-group">
+          <h2 class="more-h">AWARDS</h2>
+          <dl class="more-rows">
+            <div><dt>2025.07</dt><dd>JUNCTION X ASIA 2025, Gyeonsangbuk-do X POSTECH X MICROSOFT TRACK 1st Prize</dd></div>
+            <div><dt>2024.12</dt><dd>하나 디지털 파워 온 프로젝트 3기 우수상</dd></div>
+            <div><dt>2024.08</dt><dd>TECH4GOOD 해커톤 우수상</dd></div>
+            <div><dt>2019.05</dt><dd>JUNCTION X SEOUL 2019, ZEPETO Render API Track 3rd prize</dd></div>
+          </dl>
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <script src="../theme.js"></script>
+  <script src="../more.js"></script>
+</body>
+</html>

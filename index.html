@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>530n9h33 — Works</title>
+  <script>
+    // 첫 페인트 전에 테마를 정해 깜빡임 방지
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="more.css">
+</head>
+<body>
+  <header class="gnb">
+    <nav class="filter" aria-label="Category filter" id="filter"></nav>
+
+    <a class="logo" href="about/" aria-label="About 530n9h33">
+      <img class="only-light" src="assets/logo-light.svg" width="143.549" height="28" alt="">
+      <img class="only-dark" src="assets/logo-dark.svg" width="141.682" height="27.6936" alt="">
+    </a>
+
+    <div class="gnb-end">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <img class="only-light" src="assets/icon-sun.svg" width="28" height="28" alt="">
+        <img class="only-dark" src="assets/icon-moon.svg" width="28" height="28" alt="">
+      </button>
+    </div>
+  </header>
+
+  <main class="works" id="works" aria-live="polite"></main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <img class="only-light" src="assets/logo-footer-light.svg" width="92.2817" height="18" alt="530n9h33">
+      <img class="only-dark" src="assets/logo-footer-dark.svg" width="91.0814" height="17.803" alt="530n9h33">
+      <p>+82 10 6603 9262<br>Copyright ⓒ 2026, 530n9h33 All rights reserved.</p>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <p class="footer-label">INFO</p>
+        <a href="./">Works</a>
+        <a href="about/">About 530n9h33</a>
+      </div>
+      <div>
+        <p class="footer-label">FIND ME ON</p>
+        <a href="https://www.instagram.com/arch1v3_530n9h33_/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.behance.net/530ngh33" target="_blank" rel="noopener">Behance</a>
+      </div>
+      <div>
+        <p class="footer-label">CONTACT</p>
+        <a href="about/?more=contact" data-more="contact">Project Request</a>
+        <a href="mailto:seonghee.choi0212@gmail.com">seonghee.choi0212@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="theme.js"></script>
+  <script src="projects.js"></script>
+  <script src="main.js"></script>
+  <script src="more.js"></script>
+</body>
+</html>

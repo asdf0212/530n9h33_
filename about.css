@@ -1,0 +1,31 @@
+/* ---------- About (Figma: about530n9h33_light / _dark) — 패널 스타일은 more.css ---------- */
+
+/* ---------- Top bar ---------- */
+.about-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--pad);
+  pointer-events: none;            /* 바 아래 콘텐츠 클릭 허용 */
+  transition: right var(--panel-dur) var(--panel-ease);
+}
+.about-bar > * { pointer-events: auto; }
+.about-bar-end { display: flex; align-items: center; gap: 6px; }
+
+.about-stage { min-height: 100vh; min-height: 100dvh; }
+
+/* ---------- 1120px 이상: 패널이 본문을 밀어냄 (Figma 그대로) ---------- */
+@media (min-width: 1120px) {
+  .about.more-open .about-bar { right: var(--panel-w); }
+  .about.more-open .about-stage { margin-right: var(--panel-w); }
+  .about-stage { transition: margin-right var(--panel-dur) var(--panel-ease); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-bar, .about-stage { transition: none; }
+}
