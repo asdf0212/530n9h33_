@@ -214,7 +214,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .chip { font-size: 16px; }
 
   .footer { flex-direction: column; align-items: flex-start; }
-  .footer-links { grid-template-columns: repeat(3, auto); column-gap: 24px; }
+  .footer-links { grid-template-columns: repeat(3, auto); column-gap: 16px; }   /* 데스크탑 Figma 컬럼 간격과 동일 */
 }
 
 @media (prefers-reduced-motion: reduce) {
