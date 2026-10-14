@@ -1,5 +1,5 @@
 // 프로젝트 데이터. 새 작업은 이 배열 맨 위에 추가하면 목록과 필터에 자동 반영됩니다.
-// tags: graphic / identity / editorial / digital 중 여러 개 가능
+// tags: graphic / identity / editorial / digital / exhibition 중 여러 개 가능
 // thumb: 썸네일 이미지 경로 (없으면 빈 박스로 표시)
 //
 // ── 상세 페이지(work/?p=slug)용 필드 — 없으면 해당 부분만 생략됨 ──
@@ -17,7 +17,7 @@ window.PROJECTS = [
     slug: "lg-mandalic-web",
     title: "LG ELECTRONICS\nCOLLAGE STUDENT ART COLLABORATION POP-UP EXHIBITION",
     year: 2025,
-    tags: ["graphic"],
+    tags: ["exhibition"],
     thumb: "",
     summary:
       'The Mandalic Web is a media art project visualizing the "connection" value of LG\'s webOS platform, using a radiating-and-converging mandala/spiderweb motif in a looping motion graphic and a participatory installation where visitors attach handwritten notes of their experiences to form one connected network.',
@@ -105,4 +105,4 @@ window.PROJECTS = [
   },
 ];
 
-window.CATEGORIES = ["all", "graphic", "identity", "editorial", "digital"];
+window.CATEGORIES = ["all", "graphic", "identity", "editorial", "digital", "exhibition"];

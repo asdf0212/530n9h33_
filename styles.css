@@ -195,8 +195,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .footer-label { margin-bottom: 1.3em; }    /* 빈 줄 1개 (= 행간) */
 
 /* ---------- Responsive (모바일 시안 전 임시 규칙) ---------- */
-/* 필터 + 중앙 로고가 한 줄에 안 들어가는 폭부터 필터를 아랫줄로 */
-@media (max-width: 1119px) {
+/* 필터 + 중앙 로고가 한 줄에 안 들어가는 폭부터 필터를 아랫줄로
+   (칩 6개 ≈ 571px → (화면 - 여백 64 - 로고 144) / 2 가 이보다 작아지는 1360px 미만) */
+@media (max-width: 1359px) {
   .gnb { flex-wrap: wrap; row-gap: 12px; }
   .logo { order: 0; }
   .gnb-end { order: 1; flex: 1 0 0; }
