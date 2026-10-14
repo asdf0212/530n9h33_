@@ -116,6 +116,7 @@
       worksEl.appendChild(col);
     }
     list.forEach(function (p, i) { columns[i % cols].appendChild(cardEl(p)); });
+    if (window.hangPunctuation) window.hangPunctuation(worksEl);
   }
 
   function render() {

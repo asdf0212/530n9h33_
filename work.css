@@ -62,7 +62,6 @@ body.work > .footer {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-family: var(--font-kr);
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: -0.03em;        /* -0.42px @ 14px */
@@ -101,7 +100,6 @@ body.work > .footer {
 .board-text {
   max-width: 696px;
   margin: 24px 0 24px auto;        /* 이미지에 붙어 보이지 않도록 위아래 32px (gap 8 + 24) */
-  font-family: var(--font-kr);
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: -0.03em;

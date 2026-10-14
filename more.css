@@ -58,7 +58,6 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 16px var(--pad) 32px;
-  font-family: var(--font-kr);
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: -0.03em;          /* -0.42px @ 14px */

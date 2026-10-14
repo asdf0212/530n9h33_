@@ -4,7 +4,7 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4321", "--directory", "/Users/choeseonghui/Portfolio.web"],
+      "runtimeArgs": ["/Users/choeseonghui/Portfolio.web/tools/dev-server.py", "4321"],
       "port": 4321
     }
   ]
