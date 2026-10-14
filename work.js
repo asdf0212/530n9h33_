@@ -117,7 +117,7 @@
   (project.board || []).forEach(function (item) {
     if (item.row) {
       var r = el("div", "board-row");
-      r.style.setProperty("--n", item.row.length);
+      r.style.setProperty("--n", Math.min(item.row.length, 2));   // 최대 2단
       item.row.forEach(function (child) { r.appendChild(block(child)); });
       board.appendChild(r);
     } else {

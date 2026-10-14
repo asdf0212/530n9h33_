@@ -77,13 +77,13 @@ body.work > .footer {
 .work-board {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;                        /* 보드 안 이미지 사이 (바깥 여백 16의 절반) */
   padding: 48px var(--pad) 64px;
 }
 .board-row {
   display: grid;
   grid-template-columns: repeat(var(--n, 2), minmax(0, 1fr));
-  gap: 16px;
+  gap: 8px;
   align-items: start;
 }
 .board-media {
@@ -100,7 +100,7 @@ body.work > .footer {
 .board-media:has(video[src]) video { height: auto; }
 .board-text {
   max-width: 696px;
-  margin: 0 0 0 auto;
+  margin: 24px 0 24px auto;        /* 이미지에 붙어 보이지 않도록 위아래 32px (gap 8 + 24) */
   font-family: var(--font-kr);
   font-size: 14px;
   line-height: 1.4;

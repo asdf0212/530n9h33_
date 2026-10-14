@@ -10,7 +10,7 @@
 //   { image: "경로", ratio: "16/9" }        풀폭 이미지 (ratio는 파일 없을 때 자리 비율)
 //   { video: "경로.mp4" }                    자동재생 루프 영상
 //   { embed: "https://youtu.be/..." }        유튜브·비메오 (16:9)
-//   { row: [ {image…}, {video…} ] }          한 줄에 나란히 (2~3개)
+//   { row: [ {image…}, {video…} ] }          한 줄에 2개 나란히
 //   { text: "문단" }                          짧은 설명
 window.PROJECTS = [
   {
@@ -36,7 +36,7 @@ window.PROJECTS = [
       { image: "", ratio: "16/9" },
       { row: [{ image: "", ratio: "4/5" }, { image: "", ratio: "4/5" }] },
       { video: "", ratio: "16/9" },
-      { row: [{ image: "", ratio: "1/1" }, { image: "", ratio: "1/1" }, { image: "", ratio: "1/1" }] },
+      { row: [{ image: "", ratio: "1/1" }, { video: "", ratio: "1/1" }] },
       { image: "", ratio: "3/2" },
     ],
   },
