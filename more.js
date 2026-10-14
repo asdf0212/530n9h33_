@@ -54,7 +54,7 @@
           body.appendChild(document.adoptNode(el));
         });
         bind();
-        if (window.hangPunctuation) window.hangPunctuation(panel);
+        if (window.typeset) window.typeset(panel);
         panel.offsetWidth; // 붙인 직후에도 슬라이드 트랜지션이 보이도록 리플로우
       });
     return loading;
