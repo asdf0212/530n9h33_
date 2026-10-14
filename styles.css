@@ -6,6 +6,9 @@
   --thumb: #0d0d0d;       /* 썸네일 자리 */
 
   --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* 영문·숫자는 Helvetica Neue, 한글은 Apple SD Gothic Neo (Helvetica에 한글 글리프가 없어 자동으로 넘어감).
+     크기 보정 없음: Helvetica 대문자가 Apple SD 영문보다 이미 ~6% 커서 100%가 가장 자연스러움 */
+  --font-kr: "Helvetica Neue", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", Helvetica, Arial, sans-serif;
   --pad: 16px;            /* 화면 좌우·GNB 패딩 */
   --col-gap: 16px;
   --card-gap: 24px;

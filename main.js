@@ -50,7 +50,7 @@
   function cardEl(p) {
     var card = document.createElement("a");
     card.className = "card";
-    card.href = "work/" + p.slug + "/";
+    card.href = "work/?p=" + encodeURIComponent(p.slug);
 
     var title = document.createElement("h2");
     title.className = "card-title";

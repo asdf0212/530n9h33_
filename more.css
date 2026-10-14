@@ -3,7 +3,6 @@
   --panel-w: 475px;
   --panel-ease: cubic-bezier(0.32, 0.72, 0, 1);
   --panel-dur: 400ms;
-  --font-kr: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", var(--font);
 }
 
 .chip--on,
@@ -78,7 +77,7 @@
 
 .more-group { display: flex; flex-direction: column; gap: 8px; }
 .more-group--how { padding-top: 8px; }
-.more-h { font-size: inherit; font-weight: 700; }
+.more-h { font-size: inherit; font-weight: 500; }   /* 영문 제목 → Helvetica Medium (사이트 전체 영문 강조와 통일) */
 
 .more-rows { display: flex; flex-direction: column; gap: 8px; }
 .more-page--contact .more-group:first-child .more-rows { gap: 0; }   /* TEL~ELSEWHERE는 줄 간격 없이 */
