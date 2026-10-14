@@ -217,6 +217,40 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .footer-links { grid-template-columns: repeat(3, auto); column-gap: 16px; }   /* 데스크탑 Figma 컬럼 간격과 동일 */
 }
 
+/* ---------- 등장 모션 (B. Mask line) — reveal.js ---------- */
+/* 등록 전 깜빡임 방지: 대상 요소는 처리될 때까지 숨김 */
+html.reveal-on :is(.card-title, .card-badges, .card-summary, .work-title, .work-info dt, .work-info dd, .board-text, .card-thumb, .board-media,
+                  .more-h, .more-page p, .more-rows dt, .more-rows dd):not([data-rv-done]),
+.rv-pending { visibility: hidden; }
+.rv-pending.rv-play { visibility: visible; }
+
+/* 텍스트: 줄마다 틈(mask) 아래에서 밀려 올라옴 */
+.rv-line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+.rv-inner { display: block; }
+.rv-play .rv-inner {
+  animation: rv-rise 750ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--rv-delay, 0ms) + var(--rv-i, 0) * 70ms);
+}
+/* 배지 줄: 통째로 같은 방식 */
+.rv-mask.rv-pending { overflow: hidden; }
+.rv-mask.rv-play > * {
+  animation: rv-rise 750ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--rv-delay, 0ms);
+}
+@keyframes rv-rise { from { transform: translateY(105%); } to { transform: none; } }
+
+/* 이미지: 차분하게 떠오름 */
+.rv-block.rv-play {
+  animation: rv-fade 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rv-delay, 0ms);
+}
+@keyframes rv-fade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-pending { visibility: visible; }
+  .rv-play .rv-inner, .rv-mask.rv-play > *, .rv-block.rv-play { animation: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }

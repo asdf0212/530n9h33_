@@ -117,6 +117,7 @@
     }
     list.forEach(function (p, i) { columns[i % cols].appendChild(cardEl(p)); });
     if (window.typeset) window.typeset(worksEl);
+    if (window.reveal) window.reveal(worksEl);
   }
 
   function render() {

@@ -73,6 +73,7 @@
       if (tab) select(tab);
     }
     panel.inert = false;
+    replayVisiblePage();
     panel.classList.add("is-open");
     body.classList.add("more-open");
     setExpanded(true);
@@ -86,6 +87,13 @@
     setExpanded(false);
     panel.inert = true;
     if (lastTrigger) focusEl(lastTrigger, byPointer);
+  }
+
+  // 등장 모션(reveal.js): 패널을 열거나 탭을 바꿀 때마다 보이는 탭 내용을 다시 재생
+  function replayVisiblePage() {
+    if (!window.reveal) return;
+    var page = panel.querySelector(".more-page:not([hidden])");
+    if (page) window.reveal.replay(page);
   }
 
   function isOpen() {
@@ -105,6 +113,7 @@
       document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
     });
     panelBody.scrollTop = 0;
+    if (isOpen()) replayVisiblePage();
   }
 
   /* ---------- Triggers ---------- */

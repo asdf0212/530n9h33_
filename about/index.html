@@ -12,6 +12,10 @@
         t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       }
       document.documentElement.dataset.theme = t;
+      // 등장 모션: 동작 줄이기 설정이 아니면 켬 (reveal.js)
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("reveal-on");
+      }
     })();
   </script>
   <link rel="stylesheet" href="../fonts.css">
@@ -39,7 +43,7 @@
 
   <div class="more-scrim" id="more-scrim"></div>
 
-  <aside class="more" id="more" role="dialog" aria-label="More about 530n9h33" inert>
+  <aside class="more" id="more" role="dialog" aria-label="More about 530n9h33" data-rv-rows inert>
     <div class="more-bar">
       <button class="icon-box" id="more-close" type="button" aria-label="Close">
         <img class="only-light" src="../assets/icon-close-light.svg" width="24" height="24" alt="">
@@ -131,6 +135,7 @@
 
   <script src="../theme.js"></script>
   <script src="../typeset.js"></script>
+  <script src="../reveal.js"></script>
   <script src="../more.js"></script>
 </body>
 </html>
