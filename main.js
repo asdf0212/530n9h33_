@@ -18,8 +18,11 @@
     return 1;
   }
 
+  // 공유용 아티팩트 빌드에서는 주소창 쿼리(?tag=)를 못 써서 #graphic 같은 해시로 대신함 (tools/build-artifact.py)
+  var HASH_ROUTES = window.HASH_ROUTES === true;
+
   function currentTag() {
-    var tag = new URLSearchParams(location.search).get("tag");
+    var tag = HASH_ROUTES ? location.hash.slice(1) : new URLSearchParams(location.search).get("tag");
     return categories.indexOf(tag) > 0 ? tag : "all";
   }
 
@@ -40,8 +43,13 @@
 
   function setTag(tag) {
     var url = new URL(location.href);
-    if (tag === "all") url.searchParams.delete("tag");
-    else url.searchParams.set("tag", tag);
+    if (HASH_ROUTES) {
+      url.hash = tag === "all" ? "" : tag;
+    } else if (tag === "all") {
+      url.searchParams.delete("tag");
+    } else {
+      url.searchParams.set("tag", tag);
+    }
     history.pushState(null, "", url);
     render();
   }
@@ -50,7 +58,7 @@
   function cardEl(p) {
     var card = document.createElement("a");
     card.className = "card";
-    card.href = "work/?p=" + encodeURIComponent(p.slug);
+    card.href = HASH_ROUTES ? "work/index.html#" + p.slug : "work/?p=" + encodeURIComponent(p.slug);
 
     var title = document.createElement("h2");
     title.className = "card-title";
@@ -164,6 +172,7 @@
     if (c !== lastCols) { lastCols = c; renderWorks(); }
   });
   window.addEventListener("popstate", render);
+  if (HASH_ROUTES) window.addEventListener("hashchange", render);
 
   render();
 })();

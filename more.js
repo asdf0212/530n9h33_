@@ -128,7 +128,7 @@
     var link = e.target.closest("[data-more]");
     if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault();
-    var aboutUrl = link.href.split("?")[0];
+    var aboutUrl = link.href.split(/[?#]/)[0];
     load(aboutUrl).then(
       function () { open(link.dataset.more, link, e.detail > 0); },
       function () { location.href = link.href; } // 불러오기 실패 시 About으로 이동
@@ -142,7 +142,7 @@
   /* ---------- Init ---------- */
   if (document.getElementById("more")) {
     bind();
-    var initial = new URLSearchParams(location.search).get("more");
+    var initial = new URLSearchParams(location.search).get("more") || location.hash.slice(1);   // 아티팩트: about/index.html#contact
     if (initial === "contact" || initial === "profile") {
       open(initial, document.getElementById("more-open"));
     }

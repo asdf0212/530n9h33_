@@ -1,6 +1,8 @@
 // 프로젝트 상세 페이지: work/?p=<slug> 로 projects.js 의 데이터를 읽어 그림
 (function () {
-  var slug = new URLSearchParams(location.search).get("p");
+  // 아티팩트 빌드(window.HASH_ROUTES)에서는 work/index.html#slug 형태
+  var HASH_ROUTES = window.HASH_ROUTES === true;
+  var slug = HASH_ROUTES ? location.hash.slice(1) : new URLSearchParams(location.search).get("p");
   var project = (window.PROJECTS || []).filter(function (p) { return p.slug === slug; })[0];
 
   /* ---------- 닫기: 목록에서 왔으면 뒤로가기(스크롤·필터 유지), 아니면 목록으로 ---------- */
@@ -21,7 +23,7 @@
   if (!project) {
     var main = document.getElementById("work");
     main.innerHTML =
-      '<div class="work-missing"><p>Project not found.</p><p><a href="../">Back to works</a></p></div>';
+      '<div class="work-missing"><p>Project not found.</p><p><a href="' + (HASH_ROUTES ? "../index.html" : "../") + '">Back to works</a></p></div>';
     return;
   }
 
