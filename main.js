@@ -74,7 +74,7 @@
     meta.className = "card-meta";
     var badges = document.createElement("div");
     badges.className = "card-badges";
-    badges.appendChild(badge(String(p.year), "badge badge--year"));
+    if (p.year) badges.appendChild(badge(String(p.year), "badge badge--year"));   // 연도 모르면 생략
     p.tags.forEach(function (t) { badges.appendChild(badge(t, "badge")); });
     var summary = document.createElement("p");
     summary.className = "card-summary";
