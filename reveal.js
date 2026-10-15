@@ -9,7 +9,7 @@
 
   var TEXT = ".card-title, .card-summary, .work-title, .work-info dt, .work-info dd, .board-text, " +
              ".more-h, .more-page p, .more-rows dt, .more-rows dd";   // MORE 패널 (CONTACT / PROFILE)
-  var MASK = ".card-badges";            // 줄로 나누지 않고 통째로 틈에서 올라옴
+  var MASK = ".card-badges, .count-inner";   // 줄로 나누지 않고 통째로 틈에서 올라옴 (배지, 작업 개수)
   var BLOCK = ".card-thumb, .board-media";
   var LINE_STAGGER = 70;   // 한 요소 안에서 줄 사이 (ms)
   var ITEM_STAGGER = 90;   // 동시에 들어온 요소들 사이 (ms)

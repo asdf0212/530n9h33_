@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="more.css">
 </head>
-<body>
+<body class="works-page">
   <header class="gnb">
     <nav class="filter" aria-label="Category filter" id="filter"></nav>
 
@@ -41,6 +41,9 @@
   </header>
 
   <main class="works" id="works" aria-live="polite"></main>
+
+  <!-- 지금 보이는 작업 개수 (필터에 따라 바뀜) -->
+  <p class="works-count" id="works-count" role="status"></p>
 
   <footer class="footer">
     <div class="footer-brand">

@@ -100,13 +100,8 @@
     worksEl.style.setProperty("--cols", cols);
     worksEl.innerHTML = "";
 
-    if (!list.length) {
-      var empty = document.createElement("p");
-      empty.className = "works-empty";
-      empty.textContent = "No works in this category yet.";
-      worksEl.appendChild(empty);
-      return;
-    }
+    renderCount(list.length);
+    if (!list.length) return;   // 빈 카테고리는 아래 개수 표시("0 w0rks")가 대신 알려줌
 
     var columns = [];
     for (var i = 0; i < cols; i++) {
@@ -118,6 +113,43 @@
     list.forEach(function (p, i) { columns[i % cols].appendChild(cardEl(p)); });
     if (window.typeset) window.typeset(worksEl);
     if (window.reveal) window.reveal(worksEl);
+  }
+
+  /* ---------- 작업 개수: "N w0rks" (Figma: number-count / number-setting) ---------- */
+  // 숫자는 조선굵은명조 이탤릭 SVG(assets/count/0~9.svg)를 이어 붙이고, w0rks도 SVG.
+  // 색은 테마 색(--fg-dim)으로 칠하도록 SVG를 마스크로 사용.
+  var countEl = document.getElementById("works-count");
+  var DIGIT_W = [23.4185, 20.9043, 23.0236, 23.4185, 24.7958, 23.2094, 23.3442, 23.44, 23.4185, 23.3442];
+
+  function glyph(file, width) {
+    var s = document.createElement("span");
+    s.className = "count-glyph";
+    s.style.width = width + "px";
+    var url = "url(" + new URL("assets/count/" + file, document.baseURI).href + ")";
+    s.style.webkitMaskImage = url;
+    s.style.maskImage = url;
+    return s;
+  }
+
+  function renderCount(n) {
+    if (!countEl) return;
+    countEl.innerHTML = "";
+    countEl.setAttribute("aria-label", n + (n === 1 ? " work" : " works"));
+    // 등장 모션(reveal.js)이 이 안쪽 줄을 틈 아래에서 올림
+    var inner = document.createElement("span");
+    inner.className = "count-inner";
+    var num = document.createElement("span");
+    num.className = "count-num";
+    var digits = String(n).split("");
+    digits.forEach(function (d, i) {
+      var g = glyph(d + ".svg", DIGIT_W[+d]);
+      if (i > 0 && (d === "1" || digits[i - 1] === "1")) g.classList.add("near1");   // 1 앞뒤 보정
+      num.appendChild(g);
+    });
+    // 1개면 단수(w0rk), 0개·2개 이상은 복수(w0rks)
+    inner.append(num, n === 1 ? glyph("w0rk.svg", 73.2282) : glyph("w0rks.svg", 89.5641));
+    countEl.appendChild(inner);
+    if (window.reveal) window.reveal(countEl);
   }
 
   function render() {

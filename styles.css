@@ -164,12 +164,32 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   letter-spacing: -0.03em;
 }
 
-.works-empty {
-  grid-column: 1 / -1;
-  padding: 120px 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--fg-dim);
+/* 메인: 내용이 짧을 때(빈 카테고리 등) 푸터를 화면 맨 아래에 붙임 */
+.works-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.works-page > .footer { margin-top: auto; }
+
+/* ---------- 작업 개수 "N w0rks" (Figma: number-count) ---------- */
+.works-count {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0 var(--pad) 64px;
+}
+.count-inner { display: flex; align-items: center; gap: 8px; }   /* 숫자 ↔ w0rks */
+.count-num { display: flex; align-items: center; }
+.count-num > * + * { margin-left: -6px; }   /* 두 자리 이상: 숫자 사이 -6px */
+.count-num > .near1 { margin-left: -8px; }   /* 숫자 1의 앞뒤는 획이 가늘어 넓어 보여서 더 좁힘 */
+.count-glyph {
+  display: block;
+  height: 28px;
+  background: var(--fg-dim);       /* 라이트 #b1b1b1 / 다크 #4b4b4b */
+  -webkit-mask: no-repeat center / 100% 100%;
+          mask: no-repeat center / 100% 100%;
 }
 
 /* ---------- Footer ---------- */
@@ -221,7 +241,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- 등장 모션 (B. Mask line) — reveal.js ---------- */
 /* 등록 전 깜빡임 방지: 대상 요소는 처리될 때까지 숨김 */
 html.reveal-on :is(.card-title, .card-badges, .card-summary, .work-title, .work-info dt, .work-info dd, .board-text, .card-thumb, .board-media,
-                  .more-h, .more-page p, .more-rows dt, .more-rows dd):not([data-rv-done]),
+                  .more-h, .more-page p, .more-rows dt, .more-rows dd, .count-inner):not([data-rv-done]),
 .rv-pending { visibility: hidden; }
 .rv-pending.rv-play { visibility: visible; }
 
