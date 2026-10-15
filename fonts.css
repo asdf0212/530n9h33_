@@ -60,3 +60,14 @@
        url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Bold.woff2") format("woff2"),
        url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Bold.ttf") format("truetype");
 }
+
+/* 조선굵은명조 — 카테고리별 작업 개수 숫자용 (로고처럼 -15도 기울여 사용 예정).
+   라이선스상 "배포된 형태 그대로" 써야 해서 파일은 줄이지 않음(약 2.9MB).
+   unicode-range로 숫자 0–9에만 쓰도록 범위만 지정 → 숫자가 화면에 없으면 내려받지 않음 */
+@font-face {
+  font-family: "JoseonBoldMyongjo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKm.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}

@@ -17,7 +17,33 @@
 .about-bar > * { pointer-events: auto; }
 .about-bar-end { display: flex; align-items: center; gap: 6px; }
 
-.about-stage { min-height: 100vh; min-height: 100dvh; }
+.about-stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;             /* 뷰포트 정가운데 */
+  padding: 0 var(--pad);
+}
+
+/* 제작 중 안내: re-organizing 단어(SVG) + 안내 문구 */
+.about-wip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.about-wip-word { margin: 0; line-height: 0; }
+.about-wip-word img {
+  width: min(703px, calc(100vw - 64px));   /* 좁은 화면에서는 좌우 32px 여백 안에 맞춰 축소 */
+  height: auto;
+}
+.about-wip-note {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--fg-dim);            /* 라이트 #b1b1b1 / 다크 #4b4b4b */
+}
 
 /* ---------- 1120px 이상: 패널이 본문을 밀어냄 (Figma 그대로) ---------- */
 @media (min-width: 1120px) {
