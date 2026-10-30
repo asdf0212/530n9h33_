@@ -29,8 +29,9 @@
   background: var(--thumb);
   overflow: hidden;
 }
+.work-hero picture { display: block; width: 100%; height: 100%; }
 .work-hero img,
-.work-hero video { width: 100%; height: 100%; object-fit: cover; }
+.work-hero video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* hero 위로 덮으며 올라오는 레이어들 */
 .work-overview,
@@ -93,10 +94,11 @@ body.work > .footer {
 .board-media img,
 .board-media video,
 .board-media iframe { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
-.board-media:has(img[src]),
-.board-media:has(video[src]) { aspect-ratio: auto !important; background: none; }
-.board-media:has(img[src]) img,
-.board-media:has(video[src]) video { height: auto; }
+/* 다 불러온 뒤에만 파일 원래 비율로 (불러오는 동안은 ratio 자리를 유지해 l0ad1n9…이 보이게) */
+.board-media.media-ready:has(img[src]),
+.board-media.media-ready:has(video[src]) { aspect-ratio: auto !important; background: none; }
+.board-media.media-ready:has(img[src]) img,
+.board-media.media-ready:has(video[src]) video { height: auto; }
 .board-text {
   max-width: 696px;
   margin: 24px 0 24px auto;        /* 이미지에 붙어 보이지 않도록 위아래 32px (gap 8 + 24) */

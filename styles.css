@@ -4,6 +4,7 @@
   --fg: #0d0d0d;
   --fg-dim: #b1b1b1;      /* 비활성 필터 */
   --thumb: #0d0d0d;       /* 썸네일 자리 */
+  --loading: #353535;     /* 썸네일 위 l0ad1n9… (다크 모드와 비슷한 낮은 대비) */
 
   /* 사이트 전체 공통 혼용 규칙: 영문·숫자·기호는 Helvetica Neue, 한글은 Apple SD Gothic Neo.
      Helvetica에 한글 글리프가 없어서 한글만 자동으로 Apple SD로 넘어감. 크기 보정 없음(100%). */
@@ -17,6 +18,7 @@
   --fg: #dcdcdc;
   --fg-dim: #4b4b4b;
   --thumb: #232323;
+  --loading: #4b4b4b;
 }
 
 /* ---------- Base ---------- */
@@ -270,6 +272,36 @@ html.reveal-on :is(.card-title, .card-badges, .card-summary, .work-title, .work-
 @media (prefers-reduced-motion: reduce) {
   .rv-pending { visibility: visible; }
   .rv-play .rv-inner, .rv-mask.rv-play > *, .rv-block.rv-play { animation: none; }
+}
+
+/* ---------- "l0ad1n9…" (Figma: loading) ---------- */
+/* 상자: 카드 썸네일, 상세 첫 화면, 보드 이미지·영상
+   .is-loading     파일을 불러오는 중 (media.js) → 천천히 깜빡임
+   .is-placeholder 아직 파일이 없음 → 임시 썸네일로 멈춘 채 표시 */
+.media-wait,
+.is-placeholder { position: relative; }
+.media-wait img,
+.media-wait video { opacity: 0; transition: opacity 400ms ease-out; }
+.media-wait.media-ready img,
+.media-wait.media-ready video { opacity: 1; }
+.media-wait.is-loading::after,
+.is-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 127.206px;
+  height: 28px;
+  max-width: calc(100% - 32px);
+  background: var(--loading);            /* 라이트 #353535 / 다크 #4b4b4b */
+  -webkit-mask: url("assets/loading.svg") no-repeat center / contain;
+          mask: url("assets/loading.svg") no-repeat center / contain;
+}
+.media-wait.is-loading::after { animation: loading-pulse 1.2s ease-in-out infinite alternate; }   /* 기다리는 중 */
+@keyframes loading-pulse { from { opacity: 1; } to { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .media-wait.is-loading::after { animation: none; }
+  .media-wait img, .media-wait video { transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

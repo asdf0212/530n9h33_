@@ -15,7 +15,7 @@ OUT = os.path.join(ROOT, "dist", "artifact")
 
 PAGES = ["index.html", "about/index.html", "work/index.html"]
 FILES = ["fonts.css", "styles.css", "more.css", "about.css", "work.css",
-         "theme.js", "projects.js", "main.js", "work.js", "more.js", "typeset.js", "reveal.js"]
+         "theme.js", "projects.js", "media.js", "main.js", "work.js", "more.js", "typeset.js", "reveal.js"]
 DIRS = ["assets"]
 
 LINKS = [
@@ -84,7 +84,9 @@ def main():
             text = fonts_local_only(text)
         write(os.path.join(OUT, rel), text)
     for d in DIRS:
-        shutil.copytree(os.path.join(ROOT, d), os.path.join(OUT, d))
+        # 원본 보관 폴더(_originals)와 macOS 메타 파일은 올리지 않음
+        shutil.copytree(os.path.join(ROOT, d), os.path.join(OUT, d),
+                        ignore=shutil.ignore_patterns("_originals", ".DS_Store"))
     count = sum(len(files) for _, _, files in os.walk(OUT))
     print("built", OUT, count, "files")
 

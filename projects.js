@@ -6,6 +6,7 @@
 //
 // ── 상세 페이지(work/?p=slug)용 필드 — 없으면 해당 부분만 생략됨 ──
 // hero:  첫 화면 꽉 찬 썸네일. 이미지 또는 .mp4 (없으면 thumb 사용, 그것도 없으면 빈 화면)
+// heroMobile: 세로 화면(휴대폰)용 첫 화면 이미지 (1080×1920). 없으면 hero를 잘라서 사용
 // info:  오버뷰 표의 행들 [라벨, 값]  예) ["period", "2025.02 - 2025.05"]
 // en/kr: 오버뷰 설명 문단
 // board: 오버뷰 아래 이미지·영상 콜라주. 위에서부터 순서대로 쌓임
@@ -128,7 +129,9 @@ window.PROJECTS = [
     title: "GUSUK GUSUK:\nLOCAL MARKET ANALYSIS FOR FOUNDERS",
     year: 2025,
     tags: ["digital"],
-    thumb: "",
+    thumb: "assets/works/gusuk-gusuk/thumb.jpg",
+    hero: "assets/works/gusuk-gusuk/hero.jpg",
+    heroMobile: "assets/works/gusuk-gusuk/hero-m.jpg",
     summary:
       "A local commercial district analysis service for first-time founders that layers qualitative, everyday-life context — drawn from SNS, blogs, and delivery app data — onto conventional numbers-driven analysis. Starting from on-the-ground context uncovered through interviews with merchants and aspiring founders, the service translates complex data into an intuitively readable report.",
     info: [
@@ -140,6 +143,15 @@ window.PROJECTS = [
     ],
     en: "GUSUK GUSUK is a local market analysis service for prospective business owners that layers qualitative, everyday context — drawn from social media, blogs, and delivery apps — onto conventional, numbers-only commercial analytics. Starting from on-the-ground context uncovered through interviews with shop owners and aspiring founders, I designed the service to translate complex data into an intuitively readable report format.",
     kr: "예비 창업자를 위한 지역 상권 분석 서비스로, 수치 중심의 기존 분석에 SNS·블로그·배달앱 등 생활 데이터 기반의 정성적 맥락을 더했습니다. 상인·예비 창업자 인터뷰로 발견한 현장의 맥락을 출발점 삼아, 복잡한 데이터를 직관적으로 읽을 수 있는 리포트 형태로 설계했습니다.",
+    board: [
+      { image: "assets/works/gusuk-gusuk/01.jpg", ratio: "16/9" },
+      { image: "assets/works/gusuk-gusuk/02.jpg", ratio: "16/9" },
+      { image: "assets/works/gusuk-gusuk/03.jpg", ratio: "16/9" },
+      { image: "assets/works/gusuk-gusuk/04.jpg", ratio: "16/9" },
+      { image: "assets/works/gusuk-gusuk/05.jpg", ratio: "16/9" },
+      { image: "assets/works/gusuk-gusuk/06.jpg", ratio: "16/9" },
+      { image: "assets/works/gusuk-gusuk/07.jpg", ratio: "16/9" },
+    ],
   },
   {
     slug: "dot-line-type-and-symbol",

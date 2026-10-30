@@ -76,6 +76,9 @@
         media.alt = ""; media.loading = "lazy";
       }
       thumb.appendChild(media);
+      if (window.watchMedia) window.watchMedia(thumb, media);   // 불러오는 동안 l0ad1n9…
+    } else {
+      thumb.classList.add("is-placeholder");                    // 이미지 준비 전 임시 썸네일
     }
 
     var meta = document.createElement("div");

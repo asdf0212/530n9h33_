@@ -71,11 +71,32 @@
   }
 
   /* ---------- ① Hero ---------- */
+  // heroMobile(세로 이미지)이 있으면 세로 화면(휴대폰 등)에서는 그걸 보여줌
+  var PORTRAIT = "(orientation: portrait)";
   var heroPath = project.hero || project.thumb;
   if (heroPath) {
-    var heroMedia = mediaEl(heroPath, "");
+    var heroBox = document.getElementById("work-hero");
+    var heroMedia;
+    if (project.heroMobile && isVideo(heroPath)) {
+      heroMedia = mediaEl(window.matchMedia(PORTRAIT).matches ? project.heroMobile : heroPath, "");
+      heroBox.appendChild(heroMedia);
+    } else {
+      heroMedia = mediaEl(heroPath, "");
+      if (project.heroMobile) {
+        var pic = document.createElement("picture");
+        var source = document.createElement("source");
+        source.media = PORTRAIT;
+        source.srcset = src(project.heroMobile);
+        pic.append(source, heroMedia);
+        heroBox.appendChild(pic);
+      } else {
+        heroBox.appendChild(heroMedia);
+      }
+    }
     if (heroMedia.tagName === "IMG") heroMedia.loading = "eager";
-    document.getElementById("work-hero").appendChild(heroMedia);
+    if (window.watchMedia) window.watchMedia(heroBox, heroMedia);   // 불러오는 동안 l0ad1n9…
+  } else {
+    document.getElementById("work-hero").classList.add("is-placeholder");   // 이미지 준비 전 임시 화면
   }
 
   /* ---------- ② Overview ---------- */
@@ -112,7 +133,13 @@
 
     var path = item.image || item.video;
     box.style.aspectRatio = item.ratio || "16/9";   // 파일이 없을 때 자리 비율
-    if (path) box.appendChild(mediaEl(path, item.alt));
+    if (path) {
+      var m = mediaEl(path, item.alt);
+      box.appendChild(m);
+      if (window.watchMedia) window.watchMedia(box, m);
+    } else {
+      box.classList.add("is-placeholder");
+    }
     return box;
   }
 
