@@ -65,8 +65,13 @@
   function embedUrl(url) {
     var yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
     if (yt) return "https://www.youtube.com/embed/" + yt[1] + "?rel=0";
-    var vm = url.match(/vimeo\.com\/(\d+)/);
-    if (vm) return "https://player.vimeo.com/video/" + vm[1];
+    // Vimeo는 background=1: 재생 버튼 없이 소리 끄고 자동 반복 (Behance에 파일 올린 것처럼)
+    // 비공개 링크(vimeo.com/123/abc 또는 ?h=abc)의 해시도 유지
+    var vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([\da-f]+))?/);
+    if (vm) {
+      var h = vm[2] || (url.match(/[?&]h=([\da-f]+)/) || [])[1];
+      return "https://player.vimeo.com/video/" + vm[1] + "?background=1" + (h ? "&h=" + h : "");
+    }
     return url;
   }
 
