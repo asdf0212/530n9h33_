@@ -75,7 +75,9 @@ window.PROJECTS = [
     title: "IMAGE REFERENCE ZETTELKASTEN:\nPERMANENT MEMO ARCHIVE BOOK",
     year: 2026,
     tags: ["editorial"],
-    thumb: "",
+    thumb: "assets/works/zettelkasten-archive-book/thumb.jpg",
+    hero: "assets/works/zettelkasten-archive-book/hero.jpg",
+    heroMobile: "assets/works/zettelkasten-archive-book/hero-m.jpg",
     summary:
       "This book archives formal elements found in everyday life using the Zettelkasten method, adopting its “vertical numbering” and “connection” as graphic motifs to document the collected images, the contexts of their discovery, and the insights drawn from them.",
     info: [
@@ -87,6 +89,18 @@ window.PROJECTS = [
     ],
     en: "This book archives formal elements found in everyday life using the Zettelkasten method, adopting its \"vertical numbering\" and \"connection\" as graphic motifs to document the collected images, the contexts of their discovery, and the insights drawn from them.",
     kr: "일상에서 수집한 조형 요소들을 제텔카스텐 메모 기법으로 스크랩하고, 그중 일부를 그래픽 디자인 레퍼런스로 활용하기 위해 선별하여 제작한 아카이브 북입니다. 제텔카스텐의 핵심인 버티컬 넘버링과 링크를 그래픽 모티프로 삼아 이미지와 발견 경위, 그리고 조형 요소에서 얻은 인사이트를 함께 기록했습니다.",
+    board: [
+      { image: "assets/works/zettelkasten-archive-book/임시 01.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 02.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 03.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 03-1.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 04.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 05.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 06.jpg", ratio: "16/9" },
+      { row: [{ image: "assets/works/zettelkasten-archive-book/임시 07.jpg", ratio: "8/9" }, { image: "assets/works/zettelkasten-archive-book/임시 08.jpg", ratio: "8/9" }] },
+      { image: "assets/works/zettelkasten-archive-book/임시 09.jpg", ratio: "16/9" },
+      { image: "assets/works/zettelkasten-archive-book/임시 10.jpg", ratio: "16/9" },
+    ],
   },
   {
     slug: "layered-portrait",
