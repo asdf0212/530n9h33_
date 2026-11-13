@@ -76,8 +76,7 @@ window.PROJECTS = [
     year: 2026,
     tags: ["editorial"],
     thumb: "assets/works/zettelkasten-archive-book/thumb.jpg",
-    hero: "assets/works/zettelkasten-archive-book/hero.jpg",
-    heroMobile: "assets/works/zettelkasten-archive-book/hero-m.jpg",
+    hero: "assets/works/zettelkasten-archive-book/hero.mp4",   // 모바일도 같은 영상을 화면 높이에 맞춰 꽉 채움
     summary:
       "This book archives formal elements found in everyday life using the Zettelkasten method, adopting its “vertical numbering” and “connection” as graphic motifs to document the collected images, the contexts of their discovery, and the insights drawn from them.",
     info: [
