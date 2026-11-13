@@ -1,54 +1,50 @@
 /* ---------- Web fonts ----------
-   사이트에서 실제로 쓰는 굵기만 불러옴.
-   local(): 기기에 이미 폰트가 있으면(Mac 등) 다운로드 없이 그걸 사용. */
+   Helvetica Neue · Apple SD Gothic Neo는 웹 배포 라이선스가 없어서 기기에 설치된 폰트(local)만 사용.
+   → Mac·iPhone에서는 지금 그대로 보이고, 폰트가 없는 기기(Windows·Android 등)는
+     아래의 무료 공개 폰트로 대신 보임. 이 대체 폰트는 필요한 기기에서만 내려받음.
+     - 영문: Arimo (Google Fonts, Apache 2.0) — Helvetica와 글자 폭이 같아 줄바꿈이 거의 그대로
+     - 한글: Pretendard (OFL, 공식 배포 CDN) — 쓰인 글자 묶음만 내려받는 dynamic subset */
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css");
 
-/* Helvetica Neue — 300 카드 설명 / 400 푸터 / 500 칩·제목·배지
-   fonts.cdnfonts.com 의 CSS 링크는 한 굵기에 Condensed·Extended·Heavy 등이 섞여 있어
-   엉뚱한 폭이 잡힐 수 있으므로, 정확한 파일만 골라 직접 선언 */
+/* Helvetica Neue — 400 본문·푸터 / 500 칩·제목·배지 (기기 폰트만) */
 @font-face {
   font-family: "Helvetica Neue";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local("HelveticaNeue-Light"),
-       url("https://fonts.cdnfonts.com/s/14188/HelveticaNeue-Light.woff") format("woff");
+  src: local("HelveticaNeue-Light");
 }
 @font-face {
   font-family: "Helvetica Neue";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("HelveticaNeue"),
-       url("https://fonts.cdnfonts.com/s/14188/HelveticaNeue-Roman.woff") format("woff");
+  src: local("HelveticaNeue");
 }
 @font-face {
   font-family: "Helvetica Neue";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local("HelveticaNeue-Medium"),
-       url("https://fonts.cdnfonts.com/s/14188/HelveticaNeueMedium.woff") format("woff");
+  src: local("HelveticaNeue-Medium");
 }
 
 /* Apple SD Gothic Neo — 한글 전용 (영문은 Helvetica Neue가 담당).
-   Helvetica 300 / 400 / 500 에 짝 맞춤 → SD Light / Regular / Bold. 실제로 한글이 쓰인 굵기만 내려받음 */
+   Helvetica 300 / 400 / 500 에 짝 맞춤 → SD Light / Regular / Bold (기기 폰트만) */
 @font-face {
   font-family: "Apple SD Gothic Neo";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local("AppleSDGothicNeo-Light"),
-       url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Light.woff2") format("woff2"),
-       url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Light.ttf") format("truetype");
+  src: local("AppleSDGothicNeo-Light");
 }
 @font-face {
   font-family: "Apple SD Gothic Neo";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("AppleSDGothicNeo-Regular"),
-       url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Regular.woff2") format("woff2"),
-       url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Regular.ttf") format("truetype");
+  src: local("AppleSDGothicNeo-Regular");
 }
 /* 강조(500) 짝 맞춤: Helvetica Medium 옆의 한글은 Apple SD Medium이면 얇아 보여서 Bold 파일을 연결 */
 @font-face {
@@ -56,9 +52,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local("AppleSDGothicNeo-Bold"),
-       url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Bold.woff2") format("woff2"),
-       url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Bold.ttf") format("truetype");
+  src: local("AppleSDGothicNeo-Bold");
 }
 
 /* 조선굵은명조 — 카테고리별 작업 개수 숫자용 (로고처럼 -15도 기울여 사용 예정).

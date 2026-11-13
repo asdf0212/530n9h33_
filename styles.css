@@ -7,8 +7,9 @@
   --loading: #353535;     /* 썸네일 위 l0ad1n9… (다크 모드와 비슷한 낮은 대비) */
 
   /* 사이트 전체 공통 혼용 규칙: 영문·숫자·기호는 Helvetica Neue, 한글은 Apple SD Gothic Neo.
-     Helvetica에 한글 글리프가 없어서 한글만 자동으로 Apple SD로 넘어감. 크기 보정 없음(100%). */
-  --font: "Helvetica Neue", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", Helvetica, Arial, sans-serif;
+     Helvetica에 한글 글리프가 없어서 한글만 자동으로 Apple SD로 넘어감. 크기 보정 없음(100%).
+     두 폰트가 없는 기기는 Arimo(영문) + Pretendard(한글)로 대체 (fonts.css) */
+  --font: "Helvetica Neue", "Apple SD Gothic Neo", "Arimo", "Pretendard", "Noto Sans KR", Helvetica, Arial, sans-serif;
   --pad: 16px;            /* 화면 좌우·GNB 패딩 */
   --col-gap: 16px;
   --card-gap: 36px;      /* 같은 컬럼 안 카드 사이 */
