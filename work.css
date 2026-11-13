@@ -32,6 +32,18 @@
 .work-hero picture { display: block; width: 100%; height: 100%; }
 .work-hero img,
 .work-hero video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* 비메오 등 임베드: iframe은 object-fit이 안 돼서, 영상 비율 그대로 화면보다 크게 키워 가운데 정렬 (= cover) */
+.work-hero iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, calc(100vh * var(--hero-ratio, 1.7778)));
+  width: max(100%, calc(100svh * var(--hero-ratio, 1.7778)));
+  height: max(100%, calc(100vw / var(--hero-ratio, 1.7778)));
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
 
 /* hero 위로 덮으며 올라오는 레이어들 */
 .work-overview,

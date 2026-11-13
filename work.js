@@ -62,6 +62,10 @@
     return img;
   }
 
+  function isEmbed(path) {
+    return /(youtu\.be|youtube\.com|vimeo\.com)\//.test(path);
+  }
+
   function embedUrl(url) {
     var yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
     if (yt) return "https://www.youtube.com/embed/" + yt[1] + "?rel=0";
@@ -79,7 +83,21 @@
   // heroMobile(세로 이미지)이 있으면 세로 화면(휴대폰 등)에서는 그걸 보여줌
   var PORTRAIT = "(orientation: portrait)";
   var heroPath = project.hero || project.thumb;
-  if (heroPath) {
+  // 공유용 아티팩트는 외부 영상(비메오 등)을 못 띄워서, 대신 쓸 파일이 있으면 그걸로
+  if (HASH_ROUTES && project.heroFallback && isEmbed(heroPath)) heroPath = project.heroFallback;
+  if (heroPath && isEmbed(heroPath)) {
+    // 비메오·유튜브 링크: 재생 버튼 없이 자동 반복, 화면을 꽉 채우도록 영상 비율대로 넘치게 키움 (work.css)
+    var embedBox = document.getElementById("work-hero");
+    var r = (project.heroRatio || "16/9").split("/");
+    embedBox.style.setProperty("--hero-ratio", r[0] / (r[1] || 1));
+    var hf = document.createElement("iframe");
+    hf.src = embedUrl(heroPath);
+    hf.title = project.title.replace(/\n/g, " ") + " video";
+    hf.allow = "autoplay; fullscreen; picture-in-picture";
+    hf.tabIndex = -1;
+    embedBox.appendChild(hf);
+    if (window.watchMedia) window.watchMedia(embedBox, hf);   // 불러오는 동안 l0ad1n9…
+  } else if (heroPath) {
     var heroBox = document.getElementById("work-hero");
     var heroMedia;
     if (project.heroMobile && isVideo(heroPath)) {

@@ -5,7 +5,9 @@
 // title: \n 자리에서 카드 제목 줄바꿈
 //
 // ── 상세 페이지(work/?p=slug)용 필드 — 없으면 해당 부분만 생략됨 ──
-// hero:  첫 화면 꽉 찬 썸네일. 이미지 또는 .mp4 (없으면 thumb 사용, 그것도 없으면 빈 화면)
+// hero:  첫 화면 꽉 찬 썸네일. 이미지, .mp4, 또는 비메오·유튜브 링크 (없으면 thumb 사용, 그것도 없으면 빈 화면)
+//        링크 영상이 16:9가 아니면 heroRatio: "9/16" 처럼 비율 지정
+// heroFallback: 링크 영상을 못 띄우는 공유용 아티팩트에서 대신 쓸 이미지·.mp4
 // heroMobile: 세로 화면(휴대폰)용 첫 화면 이미지 (1080×1920). 없으면 hero를 잘라서 사용
 // info:  오버뷰 표의 행들 [라벨, 값]  예) ["period", "2025.02 - 2025.05"]
 // en/kr: 오버뷰 설명 문단
@@ -76,7 +78,8 @@ window.PROJECTS = [
     year: 2026,
     tags: ["editorial"],
     thumb: "assets/works/zettelkasten-archive-book/thumb.jpg",
-    hero: "assets/works/zettelkasten-archive-book/hero.mp4",   // 모바일도 같은 영상을 화면 높이에 맞춰 꽉 채움
+    hero: "https://vimeo.com/1246531042",   // 비메오: 자동 반복, 모바일도 화면 높이에 맞춰 꽉 채움
+    heroFallback: "assets/works/zettelkasten-archive-book/hero.mp4",   // 아티팩트용 (비메오가 막힘)
     summary:
       "This book archives formal elements found in everyday life using the Zettelkasten method, adopting its “vertical numbering” and “connection” as graphic motifs to document the collected images, the contexts of their discovery, and the insights drawn from them.",
     info: [
